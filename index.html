@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silk Road Uzbekistan Tours</title>
+
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@500&family=Roboto&display=swap" rel="stylesheet">
+
+  <style>
+    /* Общие стили */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      background-color: #fafafa;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5em;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #004d80;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Хедер */
+    header {
+      background: rgba(0, 77, 128, 0.9);
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.5rem;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: white;
+      font-weight: 500;
+    }
+
+    /* Герой-блок */
+    .hero {
+      background: url('images/registan-hero.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin: 1rem 0;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      background: #e6b800;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Блок о регионах */
+    .regions {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .region-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 2rem;
+    }
+
+    .region-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .region-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .region-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .region-card h3 {
+      padding: 1rem;
+      color: #b7410e;
+    }
+
+    /* Тарифы */
+    .pricing {
+      padding: 4rem 2rem;
+      background: #f0f8fa;
+      text-align: center;
+    }
+
+    .pricing-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .pricing-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-top: 4px solid #009688;
+    }
+
+    .pricing-card h3 {
+      margin-bottom: 1rem;
+    }
+
+    .pricing-card p {
+      margin: 0.5rem 0;
+    }
+
+    .pricing-card button {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background: #009688;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Преимущества */
+    .features {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .feature {
+      flex: 1 1 250px;
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Галерея */
+    .gallery {
+      padding: 4rem 2rem;
+      background: #fff3e0;
+      text-align: center;
+    }
+
+    .gallery-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 2rem;
+    }
+
+    .gallery-images img {
+      width: 100%;
+      border-radius: 8px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* Футер */
+    footer {
+      background: #004d80;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffd54f;
+    }
+
+    @media(max-width:768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Хедер -->
+  <header>
+    <div class="logo">Silk Road Uzbekistan</div>
+    <nav>
+      <a href="#regions">Regions</a>
+      <a href="#pricing">Tours</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Герой -->
+  <section class="hero">
+    <div>
+      <h1>Discover the Wonders of Uzbekistan</h1>
+      <p>Ancient cities, Silk Road heritage, and unforgettable journeys.</p>
+      <button>Book Your Trip</button>
+    </div>
+  </section>
+
+  <!-- Регионы -->
+  <section class="regions" id="regions">
+    <h2>Explore Regions</h2>
+    <div class="region-cards">
+      <div class="region-card">
+        <img src="images/samarkand.jpg" alt="Samarkand">
+        <h3>Samarkand</h3>
+      </div>
+      <div class="region-card">
+        <img src="images/bukhara.jpg" alt="Bukhara">
+        <h3>Bukhara</h3>
+      </div>
+      <div class="region-card">
+        <img src="images/khiva.jpg" alt="Khiva">
+        <h3>Khiva</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Тарифы -->
+  <section class="pricing" id="pricing">
+    <h2>Our Tour Packages</h2>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <h3>Basic</h3>
+        <p>✔ Transfer</p>
+        <p>✔ Hotel stay</p>
+        <p>✔ Local guide</p>
+        <p><strong>$499</strong></p>
+        <button>Choose</button>
+      </div>
+      <div class="pricing-card">
+        <h3>Standard</h3>
+        <p>✔ Transfer</p>
+        <p>✔ Hotel stay (4*)</p>
+        <p>✔ Professional guide</p>
+        <p>✔ Museum tickets</p>
+        <p><strong>$899</strong></p>
+        <button>Choose</button>
+      </div>
+      <div class="pricing-card">
+        <h3>Premium</h3>
+        <p>✔ VIP Transfer</p>
+        <p>✔ 5* Hotels</p>
+        <p>✔ Personal guide</p>
+        <p>✔ All excursions</p>
+        <p><strong>$1499</strong></p>
+        <button>Choose</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Преимущества -->
+  <section class="features">
+    <h2>Why Choose Us</h2>
+    <div class="feature-list">
+      <div class="feature"><h3>Comfortable Transfer</h3><p>We provide modern cars and buses for your trips.</p></div>
+      <div class="feature"><h3>Quality Accommodation</h3><p>Best hotels selected for your stay in Uzbekistan.</p></div>
+      <div class="feature"><h3>Professional Guides</h3><p>Licensed guides with deep knowledge of history and culture.</p></div>
+    </div>
+  </section>
+
+  <!-- Галерея -->
+  <section class="gallery" id="gallery">
+    <h2>Photo Gallery</h2>
+    <div class="gallery-images">
+      <img src="images/gallery1.jpg" alt="Uzbekistan photo">
+      <img src="images/samarkand.jpg" alt="Samarkand">
+      <img src="images/bukhara.jpg" alt="Bukhara">
+      <img src="images/khiva.jpg" alt="Khiva">
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer id="contact">
+    <p>&copy; 2025 Silk Road Uzbekistan. All rights reserved.</p>
+    <p>Contact us: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
+  </footer>
+
+</body>
+</html>
