@@ -64,21 +64,22 @@
     /* Языковой переключатель */
     .language-switcher {
       position: fixed;
-      top: 80px;
-      right: 20px;
+      top: 60px;
+      right: 15px;
       z-index: 1000;
       background: rgba(255, 255, 255, 0.9);
       border-radius: 5px;
-      padding: 5px;
+      padding: 4px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     
     .language-switcher a {
-      padding: 5px 10px;
+      padding: 4px 8px;
       display: inline-block;
       margin: 0 2px;
       border-radius: 3px;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      font-weight: bold;
     }
     
     .language-switcher a.active {
@@ -86,10 +87,10 @@
       color: white;
     }
 
-    /* Хедер */
+    /* Хедер - уменьшенный размер */
     header {
-      background: rgba(0, 77, 128, 0.9);
-      padding: 1rem 2rem;
+      background: rgba(0, 77, 128, 0.95);
+      padding: 0.7rem 1.5rem;
       position: fixed;
       top: 0;
       width: 100%;
@@ -97,22 +98,32 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 50px;
+      box-sizing: border-box;
     }
 
     header .logo {
       font-family: 'Raleway', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: white;
       font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
     }
 
     nav a {
-      margin-left: 20px;
       color: white;
       font-weight: 500;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      padding: 5px 8px;
     }
 
-    /* Герой-блок */
+    /* Герой-блок с отступом под фиксированную шапку */
     .hero {
       background: url('images/registan-hero.jpg') no-repeat center center/cover;
       height: 100vh;
@@ -122,20 +133,22 @@
       color: white;
       text-align: center;
       padding: 0 20px;
+      margin-top: 50px; /* Отступ для фиксированной шапки */
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+      margin-top: 0;
     }
 
     .hero p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin: 1rem 0;
     }
 
     .hero button {
-      padding: 12px 25px;
+      padding: 10px 20px;
       background: #e6b800;
       border: none;
       border-radius: 6px;
@@ -147,7 +160,7 @@
 
     /* Блок о регионах */
     .regions {
-      padding: 4rem 2rem;
+      padding: 3rem 1.5rem;
       text-align: center;
     }
 
@@ -183,7 +196,7 @@
 
     /* Тарифы */
     .pricing {
-      padding: 4rem 2rem;
+      padding: 3rem 1.5rem;
       background: #f0f8fa;
       text-align: center;
     }
@@ -199,8 +212,8 @@
     .pricing-card {
       background: white;
       border-radius: 10px;
-      padding: 2rem;
-      width: 300px;
+      padding: 1.5rem;
+      width: 280px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       border-top: 4px solid #009688;
     }
@@ -215,7 +228,7 @@
 
     .pricing-card button {
       margin-top: 1rem;
-      padding: 10px 20px;
+      padding: 8px 16px;
       background: #009688;
       border: none;
       color: white;
@@ -225,14 +238,14 @@
 
     /* Преимущества */
     .features {
-      padding: 4rem 2rem;
+      padding: 3rem 1.5rem;
       text-align: center;
     }
 
     .feature-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
+      gap: 20px;
       justify-content: center;
       margin-top: 2rem;
     }
@@ -241,13 +254,13 @@
       flex: 1 1 250px;
       background: white;
       border-radius: 10px;
-      padding: 2rem;
+      padding: 1.5rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     /* Галерея */
     .gallery {
-      padding: 4rem 2rem;
+      padding: 3rem 1.5rem;
       background: #fff3e0;
       text-align: center;
     }
@@ -270,7 +283,7 @@
     footer {
       background: #004d80;
       color: white;
-      padding: 2rem;
+      padding: 1.5rem;
       text-align: center;
     }
 
@@ -278,14 +291,84 @@
       color: #ffd54f;
     }
 
+    /* Адаптивность для мобильных */
     @media(max-width:768px) {
+      header {
+        padding: 0.5rem 1rem;
+        height: 45px;
+      }
+      
+      header .logo {
+        font-size: 1rem;
+      }
+      
+      nav {
+        gap: 8px;
+      }
+      
+      nav a {
+        font-size: 0.8rem;
+        padding: 4px 6px;
+      }
+      
+      .hero {
+        margin-top: 45px;
+        height: calc(100vh - 45px);
+      }
+      
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
       }
       
       .language-switcher {
-        top: 70px;
+        top: 50px;
         right: 10px;
+        padding: 3px;
+      }
+      
+      .language-switcher a {
+        padding: 3px 6px;
+        font-size: 0.7rem;
+      }
+      
+      .regions, .pricing, .features, .gallery {
+        padding: 2rem 1rem;
+      }
+    }
+
+    @media(max-width:480px) {
+      header {
+        flex-direction: column;
+        height: auto;
+        padding: 0.5rem 1rem;
+      }
+      
+      header .logo {
+        margin-bottom: 5px;
+      }
+      
+      nav {
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      nav a {
+        font-size: 0.75rem;
+        padding: 3px 5px;
+      }
+      
+      .hero {
+        margin-top: 70px;
+        height: calc(100vh - 70px);
+      }
+      
+      .language-switcher {
+        top: 75px;
       }
     }
   </style>
