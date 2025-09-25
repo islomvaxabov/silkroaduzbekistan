@@ -133,7 +133,7 @@
       color: white;
       text-align: center;
       padding: 0 20px;
-      margin-top: 50px; /* Отступ для фиксированной шапки */
+      margin-top: 50px;
     }
 
     .hero h1 {
@@ -279,20 +279,144 @@
       object-fit: cover;
     }
 
-    /* Футер */
+    /* Стили для футера с формой */
     footer {
       background: #004d80;
       color: white;
-      padding: 1.5rem;
-      text-align: center;
+      padding: 3rem 1.5rem;
     }
 
-    footer a {
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-form h3 {
+      color: #ffd54f;
+      margin-bottom: 1.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    #application-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      background: white;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #ffd54f;
+    }
+
+    .form-group label {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      background: white;
+      padding: 0 4px;
+      color: #666;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group select:focus + label,
+    .form-group select:not([value=""]) + label {
+      top: -8px;
+      font-size: 0.8rem;
       color: #ffd54f;
     }
 
-    /* Адаптивность для мобильных */
+    .submit-btn {
+      padding: 12px 30px;
+      background: #e6b800;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      background: #d4a700;
+    }
+
+    .footer-info {
+      text-align: center;
+    }
+
+    .footer-info p {
+      margin-bottom: 1rem;
+    }
+
+    .footer-info a {
+      color: #ffd54f;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid #ffd54f;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #ffd54f;
+      color: #004d80;
+    }
+
+    /* Адаптивность */
     @media(max-width:768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
       header {
         padding: 0.5rem 1rem;
         height: 45px;
@@ -370,6 +494,20 @@
       .language-switcher {
         top: 75px;
       }
+    }
+
+    /* Стили для арабской версии формы */
+    .arabic .form-group label {
+      left: auto;
+      right: 12px;
+    }
+
+    .arabic .form-group input:focus + label,
+    .arabic .form-group input:not(:placeholder-shown) + label,
+    .arabic .form-group select:focus + label,
+    .arabic .form-group select:not([value=""]) + label {
+      right: 12px;
+      left: auto;
     }
   </style>
 </head>
@@ -476,14 +614,70 @@
       </div>
     </section>
 
-    <!-- Футер -->
+    <!-- Футер с формой -->
     <footer id="contact">
-      <p>&copy; 2025 Silk Road Uzbekistan. All rights reserved.</p>
-      <p>Contact us: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
+      <div class="footer-content">
+        <div class="contact-form">
+          <h3>Submit Application</h3>
+          <form id="application-form-en">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="firstName-en" name="firstName" required>
+                <label for="firstName-en">First Name *</label>
+              </div>
+              <div class="form-group">
+                <input type="text" id="lastName-en" name="lastName" required>
+                <label for="lastName-en">Last Name *</label>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <input type="email" id="email-en" name="email" required>
+                <label for="email-en">Email *</label>
+              </div>
+              <div class="form-group">
+                <input type="tel" id="phone-en" name="phone" required>
+                <label for="phone-en">Phone *</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <select id="socialNetwork-en" name="socialNetwork">
+                <option value="">Choose social network</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="telegram">Telegram</option>
+                <option value="instagram">Instagram</option>
+                <option value="facebook">Facebook</option>
+                <option value="viber">Viber</option>
+                <option value="other">Other</option>
+              </select>
+              <label for="socialNetwork-en">Preferred contact method</label>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="socialAccount-en" name="socialAccount" placeholder="@username or number">
+              <label for="socialAccount-en">Social media account</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+          </form>
+        </div>
+
+        <div class="footer-info">
+          <p>&copy; 2025 Silk Road Uzbekistan. All rights reserved.</p>
+          <p>Contact us: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
+          <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Telegram</a>
+          </div>
+        </div>
+      </div>
     </footer>
   </div>
 
-  <!-- Русская версия (скрыта по умолчанию) -->
+  <!-- Русская версия -->
   <div id="content-ru" class="content" style="display:none;">
     <!-- Хедер -->
     <header>
@@ -578,14 +772,70 @@
       </div>
     </section>
 
-    <!-- Футер -->
+    <!-- Футер с формой -->
     <footer id="contact">
-      <p>&copy; 2025 Шелковый Путь Узбекистан. Все права защищены.</p>
-      <p>Свяжитесь с нами: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
+      <div class="footer-content">
+        <div class="contact-form">
+          <h3>Оставить заявку</h3>
+          <form id="application-form-ru">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="firstName-ru" name="firstName" required>
+                <label for="firstName-ru">Имя *</label>
+              </div>
+              <div class="form-group">
+                <input type="text" id="lastName-ru" name="lastName" required>
+                <label for="lastName-ru">Фамилия *</label>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <input type="email" id="email-ru" name="email" required>
+                <label for="email-ru">Email *</label>
+              </div>
+              <div class="form-group">
+                <input type="tel" id="phone-ru" name="phone" required>
+                <label for="phone-ru">Телефон *</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <select id="socialNetwork-ru" name="socialNetwork">
+                <option value="">Выберите соцсеть</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="telegram">Telegram</option>
+                <option value="instagram">Instagram</option>
+                <option value="facebook">Facebook</option>
+                <option value="viber">Viber</option>
+                <option value="other">Другая</option>
+              </select>
+              <label for="socialNetwork-ru">Предпочтительный способ связи</label>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="socialAccount-ru" name="socialAccount" placeholder="@username или номер">
+              <label for="socialAccount-ru">Аккаунт в соцсети</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Отправить заявку</button>
+          </form>
+        </div>
+
+        <div class="footer-info">
+          <p>&copy; 2025 Шелковый Путь Узбекистан. Все права защищены.</p>
+          <p>Свяжитесь с нами: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
+          <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Telegram</a>
+          </div>
+        </div>
+      </div>
     </footer>
   </div>
 
-  <!-- Арабская версия (скрыта по умолчанию) -->
+  <!-- Арабская версия -->
   <div id="content-ar" class="content arabic" style="display:none;">
     <!-- Хедер -->
     <header>
@@ -680,10 +930,66 @@
       </div>
     </section>
 
-    <!-- Футер -->
+    <!-- Футер с формой -->
     <footer id="contact">
-      <p>&copy; 2025 طريق الحرير أوزبكستان. جميع الحقوق محفوظة.</p>
-      <p>اتصل بنا: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
+      <div class="footer-content">
+        <div class="contact-form">
+          <h3>تقديم طلب</h3>
+          <form id="application-form-ar">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="firstName-ar" name="firstName" required>
+                <label for="firstName-ar">الاسم الأول *</label>
+              </div>
+              <div class="form-group">
+                <input type="text" id="lastName-ar" name="lastName" required>
+                <label for="lastName-ar">اسم العائلة *</label>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <input type="email" id="email-ar" name="email" required>
+                <label for="email-ar">البريد الإلكتروني *</label>
+              </div>
+              <div class="form-group">
+                <input type="tel" id="phone-ar" name="phone" required>
+                <label for="phone-ar">الهاتف *</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <select id="socialNetwork-ar" name="socialNetwork">
+                <option value="">اختر شبكة اجتماعية</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="telegram">Telegram</option>
+                <option value="instagram">Instagram</option>
+                <option value="facebook">Facebook</option>
+                <option value="viber">Viber</option>
+                <option value="other">أخرى</option>
+              </select>
+              <label for="socialNetwork-ar">طريقة الاتصال المفضلة</label>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="socialAccount-ar" name="socialAccount" placeholder="@username أو رقم">
+              <label for="socialAccount-ar">الحساب على الشبكة الاجتماعية</label>
+            </div>
+
+            <button type="submit" class="submit-btn">إرسال الطلب</button>
+          </form>
+        </div>
+
+        <div class="footer-info">
+          <p>&copy; 2025 طريق الحرير أوزبكستان. جميع الحقوق محفوظة.</p>
+          <p>اتصل بنا: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
+          <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Telegram</a>
+          </div>
+        </div>
+      </div>
     </footer>
   </div>
 
@@ -725,6 +1031,30 @@
     document.querySelector('.lang-ar').addEventListener('click', function(e) {
       e.preventDefault();
       switchLanguage('ar');
+    });
+    
+    // Обработчики для форм
+    document.addEventListener('DOMContentLoaded', function() {
+      // Английская форма
+      document.getElementById('application-form-en')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Application submitted successfully! We will contact you soon.');
+        this.reset();
+      });
+      
+      // Русская форма
+      document.getElementById('application-form-ru')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Заявка отправлена успешно! Мы свяжемся с вами в ближайшее время.');
+        this.reset();
+      });
+      
+      // Арабская форма
+      document.getElementById('application-form-ar')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('تم إرسال الطلب بنجاح! سنتواصل معك قريبًا.');
+        this.reset();
+      });
     });
     
     // Инициализация: показать английскую версию по умолчанию
