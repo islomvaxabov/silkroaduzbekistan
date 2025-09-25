@@ -7,6 +7,8 @@
 
   <!-- Шрифты -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <!-- Арабский шрифт -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
 
   <style>
     /* Общие стили */
@@ -45,6 +47,45 @@
       color: inherit;
     }
 
+    /* Стили для арабской версии */
+    .arabic {
+      direction: rtl;
+      font-family: 'Amiri', serif;
+    }
+    
+    .arabic h1, .arabic h2, .arabic h3 {
+      font-family: 'Amiri', serif;
+    }
+    
+    .arabic p {
+      font-family: 'Amiri', serif;
+    }
+
+    /* Языковой переключатель */
+    .language-switcher {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 5px;
+      padding: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .language-switcher a {
+      padding: 5px 10px;
+      display: inline-block;
+      margin: 0 2px;
+      border-radius: 3px;
+      font-size: 0.9rem;
+    }
+    
+    .language-switcher a.active {
+      background: #004d80;
+      color: white;
+    }
+
     /* Хедер */
     header {
       background: rgba(0, 77, 128, 0.9);
@@ -73,7 +114,7 @@
 
     /* Герой-блок */
     .hero {
-      background: url('images/registan-hero.jpg') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1594736797933-d0b4ec4d7d72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -241,109 +282,370 @@
       .hero h1 {
         font-size: 2.5rem;
       }
+      
+      .language-switcher {
+        top: 70px;
+        right: 10px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Языковой переключатель -->
+  <div class="language-switcher">
+    <a href="#" class="lang-en active">EN</a>
+    <a href="#" class="lang-ru">RU</a>
+    <a href="#" class="lang-ar">AR</a>
+  </div>
 
-  <!-- Хедер -->
-  <header>
-    <div class="logo">Silk Road Uzbekistan</div>
-    <nav>
-      <a href="#regions">Regions</a>
-      <a href="#pricing">Tours</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <!-- Английская версия (по умолчанию) -->
+  <div id="content-en" class="content">
+    <!-- Хедер -->
+    <header>
+      <div class="logo">Silk Road Uzbekistan</div>
+      <nav>
+        <a href="#regions">Regions</a>
+        <a href="#pricing">Tours</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <!-- Герой -->
-  <section class="hero">
-    <div>
-      <h1>Discover the Wonders of Uzbekistan</h1>
-      <p>Ancient cities, Silk Road heritage, and unforgettable journeys.</p>
-      <button>Book Your Trip</button>
-    </div>
-  </section>
-
-  <!-- Регионы -->
-  <section class="regions" id="regions">
-    <h2>Explore Regions</h2>
-    <div class="region-cards">
-      <div class="region-card">
-        <img src="images/samarkand.jpg" alt="Samarkand">
-        <h3>Samarkand</h3>
+    <!-- Герой -->
+    <section class="hero">
+      <div>
+        <h1>Discover the Wonders of Uzbekistan</h1>
+        <p>Ancient cities, Silk Road heritage, and unforgettable journeys.</p>
+        <button>Book Your Trip</button>
       </div>
-      <div class="region-card">
-        <img src="images/bukhara.jpg" alt="Bukhara">
-        <h3>Bukhara</h3>
-      </div>
-      <div class="region-card">
-        <img src="images/khiva.jpg" alt="Khiva">
-        <h3>Khiva</h3>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Тарифы -->
-  <section class="pricing" id="pricing">
-    <h2>Our Tour Packages</h2>
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <h3>Basic</h3>
-        <p>✔ Transfer</p>
-        <p>✔ Hotel stay</p>
-        <p>✔ Local guide</p>
-        <p><strong>$499</strong></p>
-        <button>Choose</button>
+    <!-- Регионы -->
+    <section class="regions" id="regions">
+      <h2>Explore Regions</h2>
+      <div class="region-cards">
+        <div class="region-card">
+          <img src="https://images.unsplash.com/photo-1594736797933-d0b4ec4d7d72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Samarkand">
+          <h3>Samarkand</h3>
+        </div>
+        <div class="region-card">
+          <img src="https://images.unsplash.com/photo-1620207418855-cdfbf9d15dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Bukhara">
+          <h3>Bukhara</h3>
+        </div>
+        <div class="region-card">
+          <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Khiva">
+          <h3>Khiva</h3>
+        </div>
       </div>
-      <div class="pricing-card">
-        <h3>Standard</h3>
-        <p>✔ Transfer</p>
-        <p>✔ Hotel stay (4*)</p>
-        <p>✔ Professional guide</p>
-        <p>✔ Museum tickets</p>
-        <p><strong>$899</strong></p>
-        <button>Choose</button>
+    </section>
+
+    <!-- Тарифы -->
+    <section class="pricing" id="pricing">
+      <h2>Our Tour Packages</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>Basic</h3>
+          <p>✔ Transfer</p>
+          <p>✔ Hotel stay</p>
+          <p>✔ Local guide</p>
+          <p><strong>$499</strong></p>
+          <button>Choose</button>
+        </div>
+        <div class="pricing-card">
+          <h3>Standard</h3>
+          <p>✔ Transfer</p>
+          <p>✔ Hotel stay (4*)</p>
+          <p>✔ Professional guide</p>
+          <p>✔ Museum tickets</p>
+          <p><strong>$899</strong></p>
+          <button>Choose</button>
+        </div>
+        <div class="pricing-card">
+          <h3>Premium</h3>
+          <p>✔ VIP Transfer</p>
+          <p>✔ 5* Hotels</p>
+          <p>✔ Personal guide</p>
+          <p>✔ All excursions</p>
+          <p><strong>$1499</strong></p>
+          <button>Choose</button>
+        </div>
       </div>
-      <div class="pricing-card">
-        <h3>Premium</h3>
-        <p>✔ VIP Transfer</p>
-        <p>✔ 5* Hotels</p>
-        <p>✔ Personal guide</p>
-        <p>✔ All excursions</p>
-        <p><strong>$1499</strong></p>
-        <button>Choose</button>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+      <h2>Why Choose Us</h2>
+      <div class="feature-list">
+        <div class="feature"><h3>Comfortable Transfer</h3><p>We provide modern cars and buses for your trips.</p></div>
+        <div class="feature"><h3>Quality Accommodation</h3><p>Best hotels selected for your stay in Uzbekistan.</p></div>
+        <div class="feature"><h3>Professional Guides</h3><p>Licensed guides with deep knowledge of history and culture.</p></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Преимущества -->
-  <section class="features">
-    <h2>Why Choose Us</h2>
-    <div class="feature-list">
-      <div class="feature"><h3>Comfortable Transfer</h3><p>We provide modern cars and buses for your trips.</p></div>
-      <div class="feature"><h3>Quality Accommodation</h3><p>Best hotels selected for your stay in Uzbekistan.</p></div>
-      <div class="feature"><h3>Professional Guides</h3><p>Licensed guides with deep knowledge of history and culture.</p></div>
-    </div>
-  </section>
+    <!-- Галерея -->
+    <section class="gallery" id="gallery">
+      <h2>Photo Gallery</h2>
+      <div class="gallery-images">
+        <img src="https://images.unsplash.com/photo-1594736797933-d0b4ec4d7d72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Uzbekistan photo">
+        <img src="https://images.unsplash.com/photo-1620207418855-cdfbf9d15dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Samarkand">
+        <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Bukhara">
+        <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Khiva">
+      </div>
+    </section>
 
-  <!-- Галерея -->
-  <section class="gallery" id="gallery">
-    <h2>Photo Gallery</h2>
-    <div class="gallery-images">
-      <img src="images/gallery1.jpg" alt="Uzbekistan photo">
-      <img src="images/samarkand.jpg" alt="Samarkand">
-      <img src="images/bukhara.jpg" alt="Bukhara">
-      <img src="images/khiva.jpg" alt="Khiva">
-    </div>
-  </section>
+    <!-- Футер -->
+    <footer id="contact">
+      <p>&copy; 2025 Silk Road Uzbekistan. All rights reserved.</p>
+      <p>Contact us: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
+    </footer>
+  </div>
 
-  <!-- Футер -->
-  <footer id="contact">
-    <p>&copy; 2025 Silk Road Uzbekistan. All rights reserved.</p>
-    <p>Contact us: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
-  </footer>
+  <!-- Русская версия (скрыта по умолчанию) -->
+  <div id="content-ru" class="content" style="display:none;">
+    <!-- Хедер -->
+    <header>
+      <div class="logo">Шелковый Путь Узбекистан</div>
+      <nav>
+        <a href="#regions">Регионы</a>
+        <a href="#pricing">Туры</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </header>
 
+    <!-- Герой -->
+    <section class="hero">
+      <div>
+        <h1>Откройте для себя чудеса Узбекистана</h1>
+        <p>Древние города, наследие Шелкового пути и незабываемые путешествия.</p>
+        <button>Забронировать тур</button>
+      </div>
+    </section>
+
+    <!-- Регионы -->
+    <section class="regions" id="regions">
+      <h2>Исследуйте регионы</h2>
+      <div class="region-cards">
+        <div class="region-card">
+          <img src="https://images.unsplash.com/photo-1594736797933-d0b4ec4d7d72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Самарканд">
+          <h3>Самарканд</h3>
+        </div>
+        <div class="region-card">
+          <img src="https://images.unsplash.com/photo-1620207418855-cdfbf9d15dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Бухара">
+          <h3>Бухара</h3>
+        </div>
+        <div class="region-card">
+          <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Хива">
+          <h3>Хива</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Тарифы -->
+    <section class="pricing" id="pricing">
+      <h2>Наши туристические пакеты</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>Базовый</h3>
+          <p>✔ Трансфер</p>
+          <p>✔ Проживание в отеле</p>
+          <p>✔ Местный гид</p>
+          <p><strong>$499</strong></p>
+          <button>Выбрать</button>
+        </div>
+        <div class="pricing-card">
+          <h3>Стандарт</h3>
+          <p>✔ Трансфер</p>
+          <p>✔ Проживание (4*)</p>
+          <p>✔ Профессиональный гид</p>
+          <p>✔ Билеты в музеи</p>
+          <p><strong>$899</strong></p>
+          <button>Выбрать</button>
+        </div>
+        <div class="pricing-card">
+          <h3>Премиум</h3>
+          <p>✔ VIP Трансфер</p>
+          <p>✔ Отели 5*</p>
+          <p>✔ Персональный гид</p>
+          <p>✔ Все экскурсии</p>
+          <p><strong>$1499</strong></p>
+          <button>Выбрать</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+      <h2>Почему выбирают нас</h2>
+      <div class="feature-list">
+        <div class="feature"><h3>Комфортный трансфер</h3><p>Мы предоставляем современные автомобили и автобусы для ваших поездок.</p></div>
+        <div class="feature"><h3>Качественное размещение</h3><p>Лучшие отели, отобранные для вашего пребывания в Узбекистане.</p></div>
+        <div class="feature"><h3>Профессиональные гиды</h3><p>Лицензированные гиды с глубокими знаниями истории и культуры.</p></div>
+      </div>
+    </section>
+
+    <!-- Галерея -->
+    <section class="gallery" id="gallery">
+      <h2>Фотогалерея</h2>
+      <div class="gallery-images">
+        <img src="https://images.unsplash.com/photo-1594736797933-d0b4ec4d7d72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Узбекистан">
+        <img src="https://images.unsplash.com/photo-1620207418855-cdfbf9d15dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Самарканд">
+        <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Бухара">
+        <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Хива">
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer id="contact">
+      <p>&copy; 2025 Шелковый Путь Узбекистан. Все права защищены.</p>
+      <p>Свяжитесь с нами: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
+    </footer>
+  </div>
+
+  <!-- Арабская версия (скрыта по умолчанию) -->
+  <div id="content-ar" class="content arabic" style="display:none;">
+    <!-- Хедер -->
+    <header>
+      <div class="logo">طريق الحرير أوزبكستان</div>
+      <nav>
+        <a href="#regions">المناطق</a>
+        <a href="#pricing">الجولات</a>
+        <a href="#gallery">معرض الصور</a>
+        <a href="#contact">اتصل بنا</a>
+      </nav>
+    </header>
+
+    <!-- Герой -->
+    <section class="hero">
+      <div>
+        <h1>اكتشف عجائب أوزبكستان</h1>
+        <p>مدن قديمة، تراث طريق الحرير، ورحلات لا تنسى.</p>
+        <button>احجز رحلتك</button>
+      </div>
+    </section>
+
+    <!-- Регионы -->
+    <section class="regions" id="regions">
+      <h2>استكشف المناطق</h2>
+      <div class="region-cards">
+        <div class="region-card">
+          <img src="https://images.unsplash.com/photo-1594736797933-d0b4ec4d7d72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="سمرقند">
+          <h3>سمرقند</h3>
+        </div>
+        <div class="region-card">
+          <img src="https://images.unsplash.com/photo-1620207418855-cdfbf9d15dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="بخارى">
+          <h3>بخارى</h3>
+        </div>
+        <div class="region-card">
+          <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="خيوة">
+          <h3>خيوة</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Тарифы -->
+    <section class="pricing" id="pricing">
+      <h2>باقات الجولات السياحية</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>بسيط</h3>
+          <p>✔ النقل</p>
+          <p>✔ الإقامة في الفندق</p>
+          <p>✔ مرشد محلي</p>
+          <p><strong>$499</strong></p>
+          <button>اختر</button>
+        </div>
+        <div class="pricing-card">
+          <h3>قياسي</h3>
+          <p>✔ النقل</p>
+          <p>✔ الإقامة في فندق (4 نجوم)</p>
+          <p>✔ مرشد محترف</p>
+          <p>✔ تذاكر المتاحف</p>
+          <p><strong>$899</strong></p>
+          <button>اختر</button>
+        </div>
+        <div class="pricing-card">
+          <h3>مميز</h3>
+          <p>✔ نقل VIP</p>
+          <p>✔ فنادق 5 نجوم</p>
+          <p>✔ مرشد شخصي</p>
+          <p>✔ جميع الجولات</p>
+          <p><strong>$1499</strong></p>
+          <button>اختر</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+      <h2>لماذا تختارنا</h2>
+      <div class="feature-list">
+        <div class="feature"><h3>نقل مريح</h3><p>نوفر سيارات وحافلات حديثة لرحلاتك.</p></div>
+        <div class="feature"><h3>إقامة عالية الجودة</h3><p>أفضل الفنادق المختارة لإقامتك في أوزبكستان.</p></div>
+        <div class="feature"><h3>مرشدون محترفون</h3><p>مرشدون مرخصون يتمتعون بمعرفة عميقة بالتاريخ والثقافة.</p></div>
+      </div>
+    </section>
+
+    <!-- Галерея -->
+    <section class="gallery" id="gallery">
+      <h2>معرض الصور</h2>
+      <div class="gallery-images">
+        <img src="https://images.unsplash.com/photo-1594736797933-d0b4ec4d7d72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="أوزبكستان">
+        <img src="https://images.unsplash.com/photo-1620207418855-cdfbf9d15dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="سمرقند">
+        <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="بخارى">
+        <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="خيوة">
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer id="contact">
+      <p>&copy; 2025 طريق الحرير أوزبكستان. جميع الحقوق محفوظة.</p>
+      <p>اتصل بنا: <a href="mailto:info@silkroaduzbekistan.com">info@silkroaduzbekistan.com</a></p>
+    </footer>
+  </div>
+
+  <script>
+    // Функция для переключения языка
+    function switchLanguage(lang) {
+      // Скрыть все языковые версии
+      document.querySelectorAll('.content').forEach(content => {
+        content.style.display = 'none';
+      });
+      
+      // Показать выбранную языковую версию
+      document.getElementById(`content-${lang}`).style.display = 'block';
+      
+      // Обновить активную ссылку в переключателе языка
+      document.querySelectorAll('.language-switcher a').forEach(link => {
+        link.classList.remove('active');
+      });
+      document.querySelector(`.lang-${lang}`).classList.add('active');
+      
+      // Обновить атрибут lang у html элемента
+      document.documentElement.lang = lang;
+      
+      // Прокрутить наверх страницы
+      window.scrollTo(0, 0);
+    }
+    
+    // Обработчики событий для переключателя языка
+    document.querySelector('.lang-en').addEventListener('click', function(e) {
+      e.preventDefault();
+      switchLanguage('en');
+    });
+    
+    document.querySelector('.lang-ru').addEventListener('click', function(e) {
+      e.preventDefault();
+      switchLanguage('ru');
+    });
+    
+    document.querySelector('.lang-ar').addEventListener('click', function(e) {
+      e.preventDefault();
+      switchLanguage('ar');
+    });
+    
+    // Инициализация: показать английскую версию по умолчанию
+    switchLanguage('en');
+  </script>
 </body>
 </html>
